@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Input Form</title>
+    <style>
+        /* CSS for submission effect */
+        #responseMessage {
+            font-size: 18px;
+            color: green;
+            font-weight: bold;
+            display: none;
+            margin-top: 20px;
+        }
+
+        #errorMessage {
+            font-size: 18px;
+            color: red;
+            font-weight: bold;
+            display: none;
+            margin-top: 20px;
+        }
+
+        /* Example of fade effect for the message */
+        .fade-out {
+            animation: fadeOut 2s forwards;
+        }
+
+        @keyframes fadeOut {
+            0% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <h2>Enter 20 Data Points</h2>
+    <form id="dataForm">
+        <!-- Input fields for 20 data points -->
+        <label for="data1">Data 1:</label>
+        <input type="text" id="data1" name="data1" required><br><br>
+
+        <label for="data2">Data 2:</label>
+        <input type="text" id="data2" name="data2" required><br><br>
+
+        <!-- Add more input fields here up to Data 20 -->
+        <label for="data3">Data 3:</label>
+        <input type="text" id="data3" name="data3" required><br><br>
+
+        <label for="data4">Data 4:</label>
+        <input type="text" id="data4" name="data4" required><br><br>
+
+        <button type="button" onclick="submitForm()">Submit</button>
+    </form>
+
+    <!-- Placeholder for response messages -->
+    <p id="responseMessage">Data successfully submitted!</p>
+    <p id="errorMessage">Error submitting data!</p>
+
+    <script>
+        function submitForm() {
+            // Create an object to hold form data
+            const formData = {};
+            for (let i = 1; i <= 4; i++) {
+                formData[`data${i}`] = document.getElementById(`data${i}`).value;
+            }
+
+            // Send the data using fetch
+            fetch('/submit', {  // Make sure the server is running and listening at '/submit'
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.text();
+            })
+            .then(data => {
+                // Display success message and apply a fade-out effect
+                const messageElement = document.getElementById('responseMessage');
+                messageElement.style.display = 'block';  // Show message
+                messageElement.classList.add('fade-out');  // Apply fade-out effect
+
+                // Optionally hide message after 2 seconds
+                setTimeout(() => {
+                    messageElement.style.display = 'none';
+                }, 2000);
+            })
+            .catch(error => {
+                // Display error message if something goes wrong
+                const errorMessageElement = document.getElementById('errorMessage');
+                errorMessageElement.style.display = 'block';  // Show error message
+                console.error('Error:', error);
+
+                // Optionally hide error message after 3 seconds
+                setTimeout(() => {
+                    errorMessageElement.style.display = 'none';
+                }, 3000);
+            });
+        }
+    </script>
+</body>
+</html>
