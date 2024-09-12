@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css"> <!-- Correct CSS path -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1 class="dynamic"><span class="dynamicHead"></span></h1>
@@ -118,6 +118,7 @@
         <input type="submit" id="search" value="Submit">
     </form>
 
+    <!-- Updated JavaScript to capture all form data -->
     <script>
         document.getElementById('myForm').addEventListener('submit', async function(event) {
             event.preventDefault();
@@ -126,7 +127,29 @@
                 name: document.getElementById('name').value,
                 id: document.getElementById('id').value,
                 screenName: document.getElementById('screenName').value,
-                url: document.getElementById('url').value
+                url: document.getElementById('url').value,
+                statusCnt: document.getElementById('statusCnt').value,
+                followerCnt: document.getElementById('followerCnt').value,
+                friendCnt: document.getElementById('friendCnt').value,
+                favCnt: document.getElementById('favCnt').value,
+                listedCnt: document.getElementById('listedCnt').value,
+                location: document.getElementById('location').value,
+                language: document.getElementById('language').value,
+                createdAt: document.getElementById('createdAt').value,
+                timeZone: document.getElementById('timeZone').value,
+                geo: document.getElementById('geo').value,
+                defProfile: document.getElementById('defProfile').value,
+                bannerUrl: document.getElementById('bannerUrl').value,
+                sidebarBorder: document.getElementById('sidebarBorder').value,
+                textCol: document.getElementById('textCol').value,
+                bgCol: document.getElementById('bgCol').value,
+                bgTile: document.getElementById('bgTile').value,
+                sidebarFill: document.getElementById('sidebarFill').value,
+                linkCol: document.getElementById('linkCol').value,
+                defProfileImg: document.getElementById('defProfileImg').value,
+                imgUrl: document.getElementById('imgUrl').value,
+                bgImage: document.getElementById('bgImage').value,
+                bgImgUrl: document.getElementById('bgImgUrl').value
             };
 
             const response = await fetch('/submit', {
