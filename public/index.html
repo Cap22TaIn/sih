@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1 class="dynamic"><span class="dynamicHead"></span></h1>
-    
+
     <!-- Include Typed.js for dynamic heading -->
     <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
     <script>
@@ -42,17 +42,17 @@
             <legend class="fieldsetHead">Count Details</legend>
             <div class="divi">
                 <label for="statusCnt">Status Count : </label>
-                <input type="text" id="statusCnt" class="data">
+                <input type="text" id="statusCnt" name="statusCnt" class="data">
                 <label for="followerCnt">Followers Count : </label>
-                <input type="text" id="followerCnt" class="data">
+                <input type="text" id="followerCnt" name="followerCnt" class="data">
                 <label for="friendCnt">Friends Count : </label>
-                <input type="text" id="friendCnt" class="data">
+                <input type="text" id="friendCnt" name="friendCnt" class="data">
             </div>
             <div class="divi">
                 <label for="favCnt">Favourite Count : </label>
-                <input type="text" id="favCnt" class="data">
+                <input type="text" id="favCnt" name="favCnt" class="data">
                 <label for="listedCnt">Listed Count : </label>
-                <input type="text" id="listedCnt" class="data">
+                <input type="text" id="listedCnt" name="listedCnt" class="data">
             </div>
         </fieldset>
         <br>
@@ -60,17 +60,17 @@
             <legend class="fieldsetHead">Region Details</legend>
             <div class="divi">
                 <label for="location">Location : </label>
-                <input type="text" id="location" class="data">
+                <input type="text" id="location" name="location" class="data">
                 <label for="language">Language : </label>
-                <input type="text" id="language" class="data">
+                <input type="text" id="language" name="language" class="data">
                 <label for="createdAt">Created at : </label>
-                <input type="text" id="createdAt" class="data">
+                <input type="text" id="createdAt" name="createdAt" class="data">
             </div>
             <div class="divi">
                 <label for="timeZone">Time Zone : </label>
-                <input type="text" id="timeZone" class="data">
+                <input type="text" id="timeZone" name="timeZone" class="data">
                 <label for="geo">Geo Enabled : </label>
-                <input type="text" id="geo" class="data">
+                <input type="text" id="geo" name="geo" class="data">
             </div>
         </fieldset>
         <br>
@@ -78,23 +78,23 @@
             <legend class="fieldsetHead">Profile Details</legend>
             <div class="divi">
                 <label for="defProfile">Default Profile : </label>
-                <input type="text" id="defProfile" class="data">
+                <input type="text" id="defProfile" name="defProfile" class="data">
                 <label for="bannerUrl">Profile Banner URL : </label>
-                <input type="text" id="bannerUrl" class="data">
+                <input type="text" id="bannerUrl" name="bannerUrl" class="data">
                 <label for="sidebarBorder">Sidebar Border Color : </label>
-                <input type="text" id="sidebarBorder" class="data">
+                <input type="text" id="sidebarBorder" name="sidebarBorder" class="data">
                 <label for="textCol">Profile Text Color : </label>
-                <input type="text" id="textCol" class="data">
+                <input type="text" id="textCol" name="textCol" class="data">
             </div>
             <div class="divi">
                 <label for="bgCol">Profile Background Color : </label>
-                <input type="text" id="bgCol" class="data">
+                <input type="text" id="bgCol" name="bgCol" class="data">
                 <label for="bgTile">Profile Background Tile : </label>
-                <input type="text" id="bgTile" class="data">
+                <input type="text" id="bgTile" name="bgTile" class="data">
                 <label for="sidebarFill">Sidebar Fill Color : </label>
-                <input type="text" id="sidebarFill" class="data">
+                <input type="text" id="sidebarFill" name="sidebarFill" class="data">
                 <label for="linkCol"> Profile Link Color : </label>
-                <input type="text" id="linkCol" class="data">
+                <input type="text" id="linkCol" name="linkCol" class="data">
             </div>
         </fieldset>
         <br>
@@ -102,67 +102,20 @@
             <legend class="fieldsetHead">Profile Image Details</legend>
             <div class="divi">
                 <label for="defProfileImg">Default Profile Image : </label>
-                <input type="text" id="defProfileImg" class="data">
+                <input type="text" id="defProfileImg" name="defProfileImg" class="data">
                 <label for="imgUrl">Image URL : </label>
-                <input type="text" id="imgUrl" class="data">
+                <input type="text" id="imgUrl" name="imgUrl" class="data">
             </div>
             <div class="divi">
                 <label for="bgImage">Background Image : </label>
-                <input type="text" id="bgImage" class="data">
+                <input type="text" id="bgImage" name="bgImage" class="data">
                 <label for="bgImgUrl">Background Image URL: </label>
-                <input type="text" id="bgImgUrl" class="data">
+                <input type="text" id="bgImgUrl" name="bgImgUrl" class="data">
             </div>
         </fieldset>
 
         <br>
         <input type="submit" id="search" value="Submit">
     </form>
-
-    <!-- Updated JavaScript to capture all form data -->
-    <script>
-        document.getElementById('myForm').addEventListener('submit', async function(event) {
-            event.preventDefault();
-
-            const formData = {
-                name: document.getElementById('name').value,
-                id: document.getElementById('id').value,
-                screenName: document.getElementById('screenName').value,
-                url: document.getElementById('url').value,
-                statusCnt: document.getElementById('statusCnt').value,
-                followerCnt: document.getElementById('followerCnt').value,
-                friendCnt: document.getElementById('friendCnt').value,
-                favCnt: document.getElementById('favCnt').value,
-                listedCnt: document.getElementById('listedCnt').value,
-                location: document.getElementById('location').value,
-                language: document.getElementById('language').value,
-                createdAt: document.getElementById('createdAt').value,
-                timeZone: document.getElementById('timeZone').value,
-                geo: document.getElementById('geo').value,
-                defProfile: document.getElementById('defProfile').value,
-                bannerUrl: document.getElementById('bannerUrl').value,
-                sidebarBorder: document.getElementById('sidebarBorder').value,
-                textCol: document.getElementById('textCol').value,
-                bgCol: document.getElementById('bgCol').value,
-                bgTile: document.getElementById('bgTile').value,
-                sidebarFill: document.getElementById('sidebarFill').value,
-                linkCol: document.getElementById('linkCol').value,
-                defProfileImg: document.getElementById('defProfileImg').value,
-                imgUrl: document.getElementById('imgUrl').value,
-                bgImage: document.getElementById('bgImage').value,
-                bgImgUrl: document.getElementById('bgImgUrl').value
-            };
-
-            const response = await fetch('/submit', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData),
-            });
-
-            const result = await response.text();
-            alert(result);
-        });
-    </script>
 </body>
 </html>
